@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSHIMANGADZO MASIA | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles - unchanged */
+        :root {
+            --primary: #000000;
+            --secondary: #333333;
+            --accent: #1a3a5f; /* Dark blue accent */
+            --light: #f5f5f5;
+            --white: #ffffff;
+            --gray: #888888;
+            --light-gray: #e0e0e0;
+            --dark-gray: #1a1a1a;
+            --text-light: #f0f0f0;
+            --text-dark: #222222;
+            --blue-dark: #0d2b4e;
+            --blue-medium: #2c5282;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        p:hover {
+            color: var(--gray);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+        }
+
+        /* Interactive Text Styles */
+        .interactive-text {
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .interactive-text:hover {
+            color: var(--gray);
+            transform: translateY(-2px);
+        }
+
+        /* Header & Hero Section - MODIFIED */
+        header {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--accent) 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTIwMCA4MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCw0MDBMMTIwMCw0MDBMMTIwMCw4MDBMMCw4MDBaIiBmaWxsPSIjMWExYTFhIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjxwYXRoIGQ9Ik0wLDAgTDEyMDAsMCBMMTIwMCw0MDBMMCw0MDBaIiBmaWxsPSIjMWExYTFhIiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvZz48L3N2Zz4=');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-text {
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 60px;
+        }
+
+        .hero-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            perspective: 1000px;
+        }
+
+        .gallery-item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid var(--white);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transition: transform 0.8s ease, opacity 0.8s ease, z-index 0.8s ease;
+            opacity: 0;
+            transform-style: preserve-3d;
+        }
+
+        .gallery-item.active {
+            opacity: 1;
+            transform: translateX(0) rotateY(0deg);
+            z-index: 3;
+        }
+
+        .gallery-item.prev {
+            opacity: 0.7;
+            transform: translateX(-80%) rotateY(10deg);
+            z-index: 2;
+        }
+
+        .gallery-item.next {
+            opacity: 0.7;
+            transform: translateX(80%) rotateY(-10deg);
+            z-index: 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 4;
+        }
+
+        .gallery-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background-color: var(--white);
+        }
+
+        .hero-text h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            overflow: hidden;
+        }
+
+        .name-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .name-part {
+            display: inline-block;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: transform 1s ease, opacity 1s ease, color 0.5s ease;
+            cursor: default;
+            transition: all 0.5s ease;
+        }
+
+        .name-part.last {
+            transform: translateX(100px);
+            align-self: flex-end;
+        }
+
+        .name-part.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .name-part:hover {
+            transform: scale(1.1) !important;
+            color: var(--text-light);
+            text-shadow: 0 0 15px rgba(255,255,255,0.7);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--light-gray);
+        }
+
+        .tagline {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tagline:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Data Science Slideshow */
+        .data-science-slideshow {
+            margin: 40px auto;
+            max-width: 700px;
+            height: 60px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .slideshow-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 1.8rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-8px) translateX(-50%);
+            }
+        }
+
+        /* Career Vision Section */
+        .career-vision {
+            background-color: var(--white);
+        }
+
+        .vision-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quote {
+            font-style: italic;
+            padding: 25px;
+            border-left: 4px solid var(--accent);
+            background-color: var(--light);
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            position: relative;
+            transform: translateY(15px);
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+            border-radius: 8px;
+        }
+
+        .quote.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .quote:before {
+            content: '"';
+            position: absolute;
+            top: 8px;
+            left: 15px;
+            font-size: 3rem;
+            color: var(--gray);
+            opacity: 0.3;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background-color: var(--white);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid var(--light-gray);
+            position: relative;
+            z-index: 1;
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        .achievement-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .achievement-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent);
+            z-index: 2;
+        }
+
+        .achievement-image {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .achievement-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .achievement-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .achievement-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .achievement-content h3:hover {
+            color: var(--gray);
+        }
+
+        .achievement-content p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Entrepreneur Section */
+        .entrepreneur {
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        .company-slideshow {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 5px solid var(--white);
+            background: var(--white);
+        }
+
+        .company-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .company-slide.active {
+            opacity: 1;
+        }
+
+        .company-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .company-slide-nav {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .company-nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .company-nav-dot.active {
+            background-color: var(--white);
+        }
+
+        .company-logo {
+            max-width: 200px;
+            margin: 0 auto 30px;
+            display: block;
+            filter: grayscale(100%);
+        }
+
+        .company-details {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* My Journey Section - UPDATED */
+        .journey-section {
+            background-color: var(--blue-dark);
+            color: var(--white);
+            padding: 80px 0;
+        }
+
+        .journey-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .journey-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .journey-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .journey-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--light-gray);
+        }
+
+        .journey-card h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .journey-card p {
+            color: var(--light-gray);
+        }
+
+        /* Work Experience */
+        .work-experience {
+            background-color: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--accent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 20px 30px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 50px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 50px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            position: relative;
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+
+        .timeline-content:after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 15px;
+            height: 15px;
+            background-color: var(--white);
+            transform: rotate(45deg);
+            border: 1px solid var(--light-gray);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content:after {
+            right: -8px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content:after {
+            left: -8px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-date:hover {
+            color: var(--blue-medium);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -8px;
+        }
+
+        /* Team Project */
+        .team-project {
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        .project-details {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .member {
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 160px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            transform: translateY(15px);
+            opacity: 0;
+        }
+
+        .member.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .member:hover {
+            transform: translateY(-8px);
+        }
+
+        .member-name {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .member-name:hover {
+            color: var(--gray);
+        }
+
+        .member-role {
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
+        .progress-container {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .progress-item {
+            margin-bottom: 20px;
+            transform: translateX(-40px);
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .progress-item.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--accent);
+            border-radius: 8px;
+            width: 0;
+            transition: width 2s ease;
+        }
+
+        /* Music Section */
+        .music-section {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .song-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .song-title:hover {
+            color: var(--gray);
+        }
+
+        .music-player {
+            max-width: 550px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .music-player.visible {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .youtube-embed {
+            width: 100%;
+            height: 280px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .control-btn:hover {
+            background-color: var(--blue-medium);
+            transform: scale(1.1);
+        }
+
+        .github-link {
+            margin-top: 25px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--light);
+            padding: 80px 0;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .contact-column {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* LinkedIn Section */
+        .linkedin-section {
+            text-align: center;
+            padding: 60px 0;
+            background-color: var(--blue-dark);
+            color: var(--white);
+        }
+
+        .linkedin-section h2 {
+            color: var(--white);
+        }
+
+        .linkedin-section p {
+            color: var(--light-gray);
+        }
+
+        .linkedin-btn {
+            font-size: 1.1rem;
+            padding: 15px 35px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--blue-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            color: var(--light-gray);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--white);
+            color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--light-gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design - MODIFIED for new layout */
+        @media (max-width: 1100px) {
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                /* Already in column layout */
+                gap: 40px;
+            }
+            
+            .hero-text {
+                max-width: 100%;
+            }
+            
+            .gallery-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline:before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content:after {
+                left: -8px !important;
+                right: auto !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-marker,
+            .timeline-item:nth-child(even) .timeline-marker {
+                left: 12px;
+            }
+            
+            .team-members {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .youtube-embed {
+                height: 200px;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-science-slideshow {
+                height: 80px;
+            }
+            
+            .slide {
+                font-size: 1rem;
+            }
+            
+            .contact-column {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Hero Section -->
+    <header>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="tagline">Innovator | Entrepreneur | Tech Visionary</div>
+                    <div class="name-container">
+                        <h1><span class="name-part">TSHIMANGADZO</span></h1>
+                        <h1><span class="name-part last">MASIA</span></h1>
+                    </div>
+                    <p class="interactive-text">Pushing boundaries in spatial intelligence and data-driven solutions.</p>
+                    
+                    <!-- Data Science Slideshow -->
+                    <div class="data-science-slideshow">
+                        <div class="slideshow-container">
+                            <div class="slide active">Data Science</div>
+                            <div class="slide">Spatial Intelligence</div>
+                            <div class="slide">AI & Machine Learning</div>
+                            <div class="slide">Entrepreneurship</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#career-vision" class="btn">Explore My Journey</a>
+                </div>
+                <div class="hero-image">
+                    <div class="gallery-container">
+                        <div class="gallery-item active">
+                            <img src="images/p1.jpg" alt="Professional Headshot 1">
+                        </div>
+                        <div class="gallery-item next">
+                            <img src="images/p2.jpg" alt="Professional Headshot 2">
+                        </div>
+                        <div class="gallery-item prev">
+                            <img src="images/p3.jpg" alt="Professional Headshot 3">
+                        </div>
+                        <div class="gallery-nav">
+                            <div class="gallery-dot active" data-slide="0"></div>
+                            <div class="gallery-dot" data-slide="1"></div>
+                            <div class="gallery-dot" data-slide="2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- Career Vision Section -->
+    <section id="career-vision" class="career-vision">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="interactive-text">My Career Vision</h2>
+                <p class="interactive-text">Driven by innovation and a passion for transforming data into actionable intelligence</p>
+            </div>
+            <div class="vision-content">
+                <p class="interactive-text">As a current Computer Science student, I am inspired by Einstein's words: "The important thing is not to stop questioning. Curiosity has its own reason for existing." With a passion for data science and artificial intelligence, I am driven by an endless curiosity and thirst for knowledge. My goal is to explore the depths of data, uncover meaningful insights, and contribute to decision-making and innovation. As a young individual with entrepreneurial and leadership skills, I strive to seize opportunities and focus on continuous growth and improvement.</p>
+                
+                <div class="quote">
+                    <p class="interactive-text">REMEMBER: Do not pray to GOD remove the mountain but pray for strength and wisdom to climb that mountain strategically and succeed. Proverbs 3:5!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Journey Section - UPDATED -->
+    <section class="journey-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">My Journey</h2>
+                <p style="color: var(--light-gray);">From humble beginnings to aspiring tech leader</p>
+            </div>
+            <div class="journey-container">
+                <div class="journey-card">
+                    <div class="journey-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>My Beginning</h3>
+                    <p>Started with a curiosity for technology and its potential to solve real-world problems. Inspired by the power of data to transform lives and communities.</p>
+                </div>
+                <div class="journey-card">
+                    <div class="journey-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education & Growth</h3>
+                    <p>Pursuing Computer Science with focus on AI, Data Science, and Spatial Intelligence. Continuously expanding my knowledge through self-study and practical projects.</p>
+                </div>
+                <div class="journey-card">
+                    <div class="journey-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Where I Am Now</h3>
+                    <p>Leading innovative projects, founding MANGI GROUP, and mentoring others. Focused on creating impactful solutions through technology and entrepreneurship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="interactive-text">My Achievements</h2>
+                <p class="interactive-text">Recognized excellence across multiple domains of technology and leadership</p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <img src="images/toturr.jpg" alt="Hackathon" class="achievement-image">
+                    <div class="achievement-content">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="interactive-text">2x Hackathon Winner</h3>
+                        <p class="interactive-text">Won two prestigious hackathons by developing innovative solutions that addressed real-world challenges.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <img src="images/hack.png" alt="Tutoring" class="achievement-image">
+                    <div class="achievement-content">
+                        <div class="achievement-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3 class="interactive-text">Best Tutor</h3>
+                        <p class="interactive-text">Recognized for exceptional tutoring abilities, helping students improve their understanding of complex concepts.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <img src="images/peer3.jpg" alt="PAL" class="achievement-image">
+                    <div class="achievement-content">
+                        <div class="achievement-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="interactive-text">Rising Star PAL</h3>
+                        <p class="interactive-text">Awarded for outstanding performance as a Peer Assisted Learning leader.</p>
+                    </div>
+                </div>
+                
+                <div class="achievement-card">
+                    <img src="images/pal.jpg"
+                     alt="Counselling"                class="achievement-image">
+                    <div class="achievement-content">
+                        <div class="achievement-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="interactive-text">Best Dedicated Student Counselling</h3>
+                        <p class="interactive-text">Honored for exceptional dedication to student counselling and guidance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrepreneur Section -->
+    <section class="entrepreneur">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="interactive-text">Entrepreneurial Venture</h2>
+                <p class="interactive-text">Leading innovation at the intersection of technology and business</p>
+            </div>
+            <div class="company-slideshow">
+                <div class="company-slide active">
+                    <img src="C:\Users\Masia Tshimangadzo\OneDrive - Walter Sisulu University\Pictures\Camera Roll\2023\IMG-20230811-WA0046.jpg" alt="Company Image 1">
+                </div>
+                <div class="company-slide">
+                    <img src="C:\Users\Masia Tshimangadzo\OneDrive - Walter Sisulu University\Pictures\Camera Roll\2023\IMG-20230811-WA0045.jpg" alt="Company Image 2">
+                </div>
+                <div class="company-slide">
+                    <img src="C:\Users\Masia Tshimangadzo\OneDrive - Walter Sisulu University\Pictures\Screenshots\LOGO MG.png" alt="Company Image 3">
+                </div>
+                <div class="company-slide-nav">
+                    <div class="company-nav-dot active" data-slide="0"></div>
+                    <div class="company-nav-dot" data-slide="1"></div>
+                    <div class="company-nav-dot" data-slide="2"></div>
+                </div>
+            </div>
+            <img src="images/LOGO MG.png" alt="MANGI GROUP Logo" class="company-logo">
+            <div class="company-details">
+                <h3 class="interactive-text">CEO & Founder - MANGI GROUP (PTY) LTD</h3>
+                <p class="interactive-text">Leading a forward-thinking company dedicated to bridging technology and business solutions in the property sector.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="work-experience">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="interactive-text">Work Experience</h2>
+                <p class="interactive-text">Professional journey through technology leadership and mentorship</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date interactive-text">2024 - Present</div>
+                        <h3 class="interactive-text">CEO</h3>
+                        <p class="interactive-text">MANGI GROUP (PTY) LTD</p>
+                        <p class="interactive-text">Leading strategic direction and technological innovation for the company.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date interactive-text">2023 - Present</div>
+                        <h3 class="interactive-text">Leader for Spatial Intelligence Data Science Learnership</h3>
+                        <p class="interactive-text">Collaboration between WSU, NTG Solutions and Department of Labour</p>
+                        <p class="interactive-text">Leading the intake and training program for aspiring data scientists.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date interactive-text">2024 - Present</div>
+                        <h3 class="interactive-text">DUT Mentor</h3>
+                        <p class="interactive-text">Geekulcha</p>
+                        <p class="interactive-text">Mentoring students in coding and technology skills.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date interactive-text">2024 - 2025 June</div>
+                        <h3 class="interactive-text">WSU RES MENTOR</h3>
+                        <p class="interactive-text">Walter Sisulu University</p>
+                        <p class="interactive-text">Mentoring first-year students in residence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Project Button Section -->
+<section style="text-align: center; padding: 60px 0;">
+    <div class="container">
+        <a href="project.html" class="btn">
+            <i class="fas fa-users"></i> View My Team Project
+        </a>
+    </div>
+</section>
+    
+
+    <!-- Music Section -->
+    <section class="music-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="interactive-text">My Favorite Song</h2>
+                <p class="interactive-text">Inspirational music that fuels creativity and focus</p>
+            </div>
+            <div class="song-title interactive-text"><strong>Black Coffee - Wish You Were Here</strong></div>
+            <div class="music-player">
+                <!-- Replace with your own YouTube link -->
+                <iframe class="youtube-embed" src="https://www.youtube.com/embed/YOUR_SONG_ID_HERE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p class="interactive-text">This inspiring track provides the perfect backdrop for deep work and creative coding sessions.</p>
+                <div class="player-controls">
+
+                    <div class="control-btn" id="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="control-btn" id="pause-btn">
+                        <i class="fas fa-pause"></i>
+                    </div>
+                    <div class="control-btn" id="stop-btn">
+                        <i class="fas fa-stop"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & LinkedIn Section - SIDE BY SIDE -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="interactive-text">Get In Touch</h2>
+                <p class="interactive-text">Connect with me professionally or send me a message</p>
+            </div>
+            <div class="contact-container">
+                <!-- LinkedIn Column -->
+                <div class="contact-column">
+                    <h3 class="interactive-text">Let's Connect Professionally</h3>
+                    <p class="interactive-text">Connect with me on LinkedIn for professional networking and opportunities</p>
+                    <a href="https://www.linkedin.com/in/tshimangadzo-masia-b82308332" target="_blank" class="btn linkedin-btn" style="margin-top: 20px;">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+                
+                <!-- Contact Column -->
+                <div class="contact-column">
+                    <h3 class="interactive-text">Send Me a Message</h3>
+                    <p class="interactive-text">Get in touch for collaborations, opportunities, or just to connect</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="interactive-text">your.email@example.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="interactive-text">+27 12 345 6789</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="interactive-text">South Africa</span>
+                        </div>
+                    </div>
+                    <a href="mailto:your.email@example.com" class="btn" style="margin-top: 15px;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo interactive-text">TSHIMANGADZO MASIA</div>
+                <p class="interactive-text">Spatial Intelligence | Data Science | AI & Machine Learning | Property Ownership</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/tshimangadzo-masia-b82308332" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Tshimangadzo3v5" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/tshimangadzo_liso/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 TSHIMANGADZO MASIA. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Name Animation with Letter-by-Letter Effect
+        function animateName() {
+            const nameParts = document.querySelectorAll('.name-part');
+            
+            nameParts.forEach((part, index) => {
+                setTimeout(() => {
+                    part.classList.add('animated');
+                    
+                    // Add letter-by-letter animation effect
+                    const text = part.textContent;
+                    part.textContent = '';
+                    
+                    for (let i = 0; i < text.length; i++) {
+                        setTimeout(() => {
+                            part.textContent += text[i];
+                        }, i * 100);
+                    }
+                }, index * 500);
+            });
+        }
+
+        // Data Science Slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Auto-advance slides
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 2000);
+
+        // Enhanced Gallery functionality with flying effect
+        let currentGallerySlide = 0;
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const galleryDots = document.querySelectorAll('.gallery-dot');
+        
+        function showGallerySlide(n) {
+            // Remove classes from all items
+            galleryItems.forEach(item => {
+                item.classList.remove('active', 'prev', 'next');
+            });
+            galleryDots.forEach(dot => dot.classList.remove('active'));
+            
+            // Update current slide
+            currentGallerySlide = (n + galleryItems.length) % galleryItems.length;
+            
+            // Calculate previous and next indices
+            const prevIndex = (currentGallerySlide - 1 + galleryItems.length) % galleryItems.length;
+            const nextIndex = (currentGallerySlide + 1) % galleryItems.length;
+            
+            // Apply classes
+            galleryItems[currentGallerySlide].classList.add('active');
+            galleryItems[prevIndex].classList.add('prev');
+            galleryItems[nextIndex].classList.add('next');
+            galleryDots[currentGallerySlide].classList.add('active');
+        }
+        
+        // Auto-advance gallery
+        setInterval(() => {
+            showGallerySlide(currentGallerySlide + 1);
+        }, 5000);
+        
+        // Gallery dot navigation
+        galleryDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showGallerySlide(index);
+            });
+        });
+
+        // Company Slideshow functionality
+        let currentCompanySlide = 0;
+        const companySlides = document.querySelectorAll('.company-slide');
+        const companyDots = document.querySelectorAll('.company-nav-dot');
+        
+        function showCompanySlide(n) {
+            companySlides.forEach(slide => slide.classList.remove('active'));
+            companyDots.forEach(dot => dot.classList.remove('active'));
+            
+            currentCompanySlide = (n + companySlides.length) % companySlides.length;
+            
+            companySlides[currentCompanySlide].classList.add('active');
+            companyDots[currentCompanySlide].classList.add('active');
+        }
+        
+        // Auto-advance company slides
+        setInterval(() => {
+            showCompanySlide(currentCompanySlide + 1);
+        }, 4000);
+        
+        // Company dot navigation
+        companyDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showCompanySlide(index);
+            });
+        });
+
+        // Enhanced Interactive Text Effects
+        function initInteractiveText() {
+            const interactiveTexts = document.querySelectorAll('.interactive-text');
+            
+            interactiveTexts.forEach(text => {
+                // Add hover effects
+                text.addEventListener('mouseenter', function() {
+                    this.style.color = '#888888';
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                text.addEventListener('mouseleave', function() {
+                    this.style.color = '';
+                    this.style.transform = '';
+                });
+                
+                // Add click effects for some elements
+                if (text.tagName === 'H2' || text.tagName === 'H3') {
+                    text.addEventListener('click', function() {
+                        this.style.transform = 'scale(1.05)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 300);
+                    });
+                }
+            });
+        }
+
+        // Enhanced Scroll-triggered animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Special case for progress bars
+                        if (entry.target.classList.contains('progress')) {
+                            const width = entry.target.getAttribute('data-width');
+                            setTimeout(() => {
+                                entry.target.style.width = width + '%';
+                            }, 300);
+                        }
+                        
+                        // Add bounce effect for some elements
+                        if (entry.target.classList.contains('achievement-card') || 
+                            entry.target.classList.contains('member')) {
+                            entry.target.style.transform = 'translateY(0) scale(1)';
+                            setTimeout(() => {
+                                entry.target.style.transform = 'translateY(0)';
+                            }, 600);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe quotes
+            document.querySelectorAll('.quote').forEach(quote => {
+                observer.observe(quote);
+            });
+
+            // Observe achievement cards
+            document.querySelectorAll('.achievement-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Observe timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                observer.observe(item);
+            });
+
+            // Observe team members
+            document.querySelectorAll('.member').forEach(member => {
+                observer.observe(member);
+            });
+
+            // Observe progress items
+            document.querySelectorAll('.progress-item').forEach(item => {
+                observer.observe(item);
+            });
+
+            // Observe music player
+            const musicPlayer = document.querySelector('.music-player');
+            if (musicPlayer) {
+                observer.observe(musicPlayer);
+            }
+
+            // Observe journey cards
+            document.querySelectorAll('.journey-card').forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Enhanced Music player functionality
+        const playBtn = document.getElementById('play-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        let youtubeIframe;
+
+        playBtn.addEventListener('click', function() {
+            if (youtubeIframe) {
+                youtubeIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            } else {
+                youtubeIframe = document.querySelector('.youtube-embed');
+                if (youtubeIframe) {
+                    youtubeIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                }
+            }
+            
+            // Add visual feedback
+            this.style.backgroundColor = '#2c5282';
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+            }, 300);
+        });
+
+        pauseBtn.addEventListener('click', function() {
+            if (youtubeIframe) {
+                youtubeIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            } else {
+                youtubeIframe = document.querySelector('.youtube-embed');
+                if (youtubeIframe) {
+                    youtubeIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
+            }
+            
+            // Add visual feedback
+            this.style.backgroundColor = '#2c5282';
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+            }, 300);
+        });
+
+        stopBtn.addEventListener('click', function() {
+            if (youtubeIframe) {
+                youtubeIframe.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+            } else {
+                youtubeIframe = document.querySelector('.youtube-embed');
+                if (youtubeIframe) {
+                    youtubeIframe.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+                }
+            }
+            
+            // Add visual feedback
+            this.style.backgroundColor = '#2c5282';
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+            }, 300);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize everything when page loads
+        window.addEventListener('load', function() {
+            animateName();
+            initInteractiveText();
+            initScrollAnimations();
+            showGallerySlide(0); // Initialize gallery
+            showSlide(0); // Initialize data science slideshow
+        });
+
+        // Enhanced Parallax effect for header
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('header');
+            header.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+            
+            // Add subtle scale effect to header content
+            const heroContent = document.querySelector('.hero-content');
+            if (scrolled < 100) {
+                heroContent.style.transform = `scale(${1 - scrolled/1000})`;
+            }
+        });
+
+        // Add typing effect to some text elements
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Apply typing effect to tagline after name animation
+        setTimeout(() => {
+            const tagline = document.querySelector('.tagline');
+            const originalText = tagline.textContent;
+            typeWriter(tagline, originalText, 30);
+        }, 2000);
+    </script>
+</body>
+</html>
